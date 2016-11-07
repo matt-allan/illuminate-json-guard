@@ -1,0 +1,47 @@
+{
+    "name": "yuloh/illuminate-json-guard",
+    "type": "library",
+    "description": "Laravel/Lumen integration for league/json-guard",
+    "keywords": [
+        "illuminate",
+        "json-guard",
+        "laravel",
+        "lumen",
+        "JSON Schema"
+    ],
+    "homepage": "https://github.com/thephpleague/illuminate-json-guard",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Matt Allan",
+            "email": "matthew.james.allan@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php" : ">=7.0",
+        "league/json-guard": "^0.5.1",
+        "yuloh/json-guard-cli": "0.2.0",
+        "illuminate/support": "5.3.*",
+        "illuminate/console": "5.3.*"
+    },
+    "require-dev": {
+        "phpunit/phpunit" : "4.*",
+        "squizlabs/php_codesniffer": "~2.3",
+        "laravel/lumen-framework": "^5.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Yuloh\\JsonGuard\\Illuminate\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Yuloh\\JsonGuard\\Illuminate\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "phpunit",
+        "cs": "phpcs --standard=psr2 src/"
+    }
+}
