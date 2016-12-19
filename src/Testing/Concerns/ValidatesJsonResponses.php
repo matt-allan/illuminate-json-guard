@@ -3,6 +3,7 @@
 namespace Yuloh\JsonGuard\Illuminate\Testing\Concerns;
 
 use League\JsonGuard\ValidationError;
+use League\JsonGuard\Validator;
 use Yuloh\JsonGuard\Illuminate\Contracts\SchemaLoader;
 
 trait ValidatesJsonResponses
