@@ -25,7 +25,7 @@ class DefinitionsSchemaLoader implements SchemaLoader
     public function __construct(Dereferencer $dereferencer, $schema)
     {
         $this->dereferencer = $dereferencer;
-        $this->schema       = $schema;
+        $this->schema       = $this->dereferencer->dereference($schema);
     }
 
     /**
@@ -37,8 +37,6 @@ class DefinitionsSchemaLoader implements SchemaLoader
      */
     public function __invoke(string $schema)
     {
-        return $this->dereferencer->dereference(
-            (new Pointer($this->schema))->get(ltrim($schema, '#'))
-        );
+        return (new Pointer($this->schema))->get(ltrim($schema, '#'));
     }
 }
