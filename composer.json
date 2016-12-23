@@ -21,7 +21,7 @@
     "require": {
         "php" : ">=7.0",
         "league/json-guard": "^0.5.1",
-        "yuloh/json-guard-cli": "0.2.0",
+        "yuloh/json-guard-cli": "^0.2.1",
         "illuminate/support": "5.3.*",
         "illuminate/console": "5.3.*"
     },
