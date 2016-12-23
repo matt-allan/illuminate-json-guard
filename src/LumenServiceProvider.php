@@ -35,7 +35,7 @@ class LumenServiceProvider extends ServiceProvider
     protected function registerSchemaLoader()
     {
         $this->app->bind(SchemaLoaderContract::class, function (Application $app) {
-            $path = $app['config']['json-guard']['schema'];
+            $path = config('json-guard.schema');
             $schema = json_decode(file_get_contents($path), false, 512, JSON_BIGINT_AS_STRING);
             return new DefinitionsSchemaLoader($app->make(Dereferencer::class), $schema);
         });
@@ -44,7 +44,8 @@ class LumenServiceProvider extends ServiceProvider
     private function registerResponseBuilder()
     {
         $this->app->bind(ResponseBuilder::class, function (Application $app) {
-            return new JsonApiResponseBuilder($app->make(ErrorMessageTranslator::class));
+            $class = config('json-guard.response_builder', JsonApiResponseBuilder::class);
+            return $app->make($class);
         });
     }
 
