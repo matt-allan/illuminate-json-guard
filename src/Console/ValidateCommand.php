@@ -13,6 +13,6 @@ class ValidateCommand extends Command
 
     public function handle()
     {
-        (new Validate())->__invoke($this->argument('data'), $this->argument('schema'), $this->getOutput());
+        return (new Validate())->__invoke($this->argument('data'), $this->argument('schema'), $this->getOutput());
     }
 }

@@ -13,6 +13,6 @@ class CheckCommand extends Command
 
     public function handle()
     {
-        (new Check())->__invoke($this->argument('schema'), $this->getOutput());
+        return (new Check())->__invoke($this->argument('schema'), $this->getOutput());
     }
 }
