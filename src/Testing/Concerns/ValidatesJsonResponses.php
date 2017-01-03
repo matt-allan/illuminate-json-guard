@@ -32,8 +32,10 @@ trait ValidatesJsonResponses
     public function seeJsonValidatesAgainst(string $schema)
     {
         $data =    json_decode($this->response->getContent());
-        $schema    = $this->app->make(SchemaLoader::class)->__invoke($schema);
-        $validator = new Validator($data, $schema);
+        $validator = new Validator(
+            $data,
+            $this->app->make(SchemaLoader::class)->__invoke($schema)
+        );
 
         if ($validator->passes()) {
             return $this;
