@@ -42,10 +42,12 @@ trait ValidatesJsonResponses
         }
 
         $message = implode(PHP_EOL,
-            [sprintf("The JSON response does not validate against '%s'.", $schema)] +
-            array_map(function (ValidationError $error) {
-                return sprintf("[%s] %s", $error->getPointer(), $error->getMessage());
-            }, $validator->errors())
+            array_merge(
+                [sprintf("The JSON response does not validate against '%s'.", $schema)],
+                array_map(function (ValidationError $error) {
+                    return sprintf("[%s] %s", $error->getPointer(), $error->getMessage());
+                }, $validator->errors())
+            )
         );
 
         $this->fail($message);
